@@ -1,0 +1,113 @@
+﻿<?xml version="1.0"?>
+<ArrayOfItemBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ItemBase>
+		<Name>历史上的梁丰中学</Name>
+		<Index>1</Index>
+		<Url />
+		<PhotoPath></PhotoPath>
+		<ExePath />
+		<ButtonPath />
+		<PlayPath></PlayPath>
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>梁丰初中网站</Name>
+		<Index>2</Index>
+		<Url>www.lfcz.cn</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>校园文化建设</Name>
+		<Index>3</Index>
+		<Url />
+		<PhotoPath>O:\Photo</PhotoPath>
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>张家港文化网</Name>
+		<Index>4</Index>
+		<Url>www.zjgwhg.com</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>中国国学网</Name>
+		<Index>5</Index>
+		<Url>www.guoxue.com</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>虚拟实验室</Name>
+		<Index>6</Index>
+		<Url />
+		<PhotoPath />
+		<ExePath>C:\Users\Tommy\Desktop\所有快捷键</ExePath>
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>恒星英语学习</Name>
+		<Index>7</Index>
+		<Url>www.hxen.com</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>中国国家地理网</Name>
+		<Index>8</Index>
+		<Url>www.dili360.com</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>中国古曲网</Name>
+		<Index>9</Index>
+		<Url>www.guqu.net</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+	<ItemBase>
+		<Name>CCTV</Name>
+		<Index>10</Index>
+		<Url>cctv.cntv.cn</Url>
+		<PhotoPath />
+		<ExePath />
+		<ButtonPath />
+		<PlayPath />
+		<IsBack>true</IsBack>
+		<Marquee>O:\11.txt</Marquee>
+	</ItemBase>
+</ArrayOfItemBase>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="Bulletin.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashWindow" Height="100" Width="400" 
+        WindowStyle="None" Background="Transparent"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
+    <Border Background="#FF6DC6FF" CornerRadius="8" BorderBrush="Gold" BorderThickness="1">
+        <StackPanel >
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10" FontWeight="Bold">数字校园平台</TextBlock>
+            <TextBlock x:Name="startlogo" HorizontalAlignment="Center" FontSize="16" Margin="0">系统启动中，请稍等</TextBlock>
+            <TextBlock Foreground="Red" HorizontalAlignment="Left" Margin="10">加载网络多媒体信息，可能需要较长时间，请耐心等待</TextBlock>
+        </StackPanel>
+    </Border>
+</Window>
