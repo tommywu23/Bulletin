@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\BroadManager.cs" />
     <Compile Include="Model\ButtonConverter.cs" />
+    <Compile Include="Model\MainManagerHelper.cs" />
     <Compile Include="Model\DWebBrowserEvents2.cs" />
     <Compile Include="Model\Funtions.cs" />
     <Compile Include="Model\MwSysDateTimeConverter.cs" />
@@ -160,12 +161,22 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BulletinLibrary\BulletinLibrary.csproj">
       <Project>{8e857e5f-73fe-4234-b8d4-389381169088}</Project>
       <Name>BulletinLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Config\Config.csproj">
+      <Project>{c1d88d15-9c44-43a3-a3df-c4a9208862ba}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GBTouchClientContract\ClientContract.csproj">
+      <Project>{8aebe8a8-20fd-4ec9-babd-350e0d95ae38}</Project>
+      <Name>ClientContract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -173,40 +184,10 @@
     <Content Include="Resource\Images\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resource\Images\bottom.png" />
-    <Resource Include="Resource\Images\button1.png" />
-    <Resource Include="Resource\Images\button10.png" />
-    <Resource Include="Resource\Images\button2.png" />
-    <Resource Include="Resource\Images\button3.png" />
-    <Resource Include="Resource\Images\button4.png" />
-    <Resource Include="Resource\Images\button5.png" />
-    <Resource Include="Resource\Images\button6.png" />
-    <Resource Include="Resource\Images\button7.png" />
-    <Resource Include="Resource\Images\button8.png" />
-    <Resource Include="Resource\Images\button9.png" />
     <Resource Include="Resource\Images\CharmSeat.png" />
     <Resource Include="Resource\Images\Exit_general.png" />
     <Resource Include="Resource\Images\Forward_general.png" />
-    <Resource Include="Resource\Images\buttonback1.png" />
-    <Resource Include="Resource\Images\buttonback10.png" />
-    <Resource Include="Resource\Images\buttonback2.png" />
-    <Resource Include="Resource\Images\buttonback3.png" />
-    <Resource Include="Resource\Images\buttonback4.png" />
-    <Resource Include="Resource\Images\buttonback5.png" />
-    <Resource Include="Resource\Images\buttonback6.png" />
-    <Resource Include="Resource\Images\buttonback7.png" />
-    <Resource Include="Resource\Images\buttonback8.png" />
-    <Resource Include="Resource\Images\buttonback9.png" />
-    <Content Include="Resource\Images\left.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resource\Images\Menu.png" />
-    <Content Include="Resource\Images\right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resource\Images\top.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resource\Item.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

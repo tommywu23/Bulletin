@@ -18,6 +18,30 @@ namespace ConfigApp.Model {
 
 		public List<ItemBase> Items { get; set; }
 
+		public List<RSS> RssItems { get; set; }
+
+		public void SaveRSS(string[] args) {
+			if (this.RssItems == null) 
+				this.RssItems = new List<RSS>();
+			else
+				this.RssItems.Clear();
+
+			foreach (var item in args) {
+				this.RssItems.Add(new RSS { Source = item });
+			}
+
+			try {
+				XmlSerializer xs = new XmlSerializer(typeof(List<RSS>));
+				using (FileStream fs = new FileStream(System.IO.Path.Combine(CONFIGPATH, "Resource/Rss.xml"), FileMode.Create)) {
+					xs.Serialize(fs, this.RssItems);
+				}
+			} catch (Exception ex) {
+				throw ex;
+			}
+			Thread.Sleep(100);
+			MessageBox.Show("RSS源文件保存成功");			
+		}
+
 		public void Save() {
 			bool isUrl = true;
 			foreach (var item in Items) {
@@ -43,9 +67,8 @@ namespace ConfigApp.Model {
 					throw ex;
 				}
 				Thread.Sleep(100);
-				MessageBox.Show("配置文件保存成功,程序将关闭，如需继续配置请重启程序。");
-				App.Current.Shutdown();
-			}else{
+
+			} else {
 				MessageBox.Show(string.Format("配置信息格式不正确，请检查"));
 			}
 		}
@@ -62,7 +85,7 @@ namespace ConfigApp.Model {
 					this.Items = xsi.Deserialize(fs) as List<ItemBase>;
 				}
 			} catch (Exception ex) {
-				MessageBox.Show(string.Format("加载信息配置文件失败:{0}", ex.ToString()));
+				MessageBox.Show(string.Format("加载信息配置文件失败。"));
 				Application.Current.Shutdown();
 			}
 		}

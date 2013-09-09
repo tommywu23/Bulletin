@@ -8,7 +8,15 @@
         <mod:WebRadioConverter x:Key="webconverter"></mod:WebRadioConverter>
         <mod:ExeRadioConverter x:Key="execonverter"></mod:ExeRadioConverter>
         <mod:PhotoRadioConverter x:Key="photoconverter"></mod:PhotoRadioConverter>
-
+        <DataTemplate x:Key="buttonitemtemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text="{Binding ShowName}"></TextBlock>
+                <TextBlock Margin="20,0">未按</TextBlock>
+                <Label Grid.Column="7" Content="上传" Height="28" Tag="{Binding Button}" MouseUp="Label_MouseUp"></Label>
+                <TextBlock> 已按</TextBlock>
+                <Label Grid.Column="7" Content="上传" Height="28" Tag="{Binding ButtonBack}" MouseUp="Label_MouseUp"></Label>
+            </StackPanel>
+        </DataTemplate>
         <DataTemplate x:Key="menuitemtemplate">
             <DataTemplate.Resources>
                 <Style x:Key="textBoxInError" TargetType="{x:Type TextBox}">
@@ -40,11 +48,13 @@
             </DataTemplate.Resources>
             <Grid Margin="3" Height="35" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="380"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Name}" Height="25" Width="150"></TextBlock>
+                    <TextBlock Text="{Binding ShowName}" Height="25" Margin="5,0" Width="50"></TextBlock>
+                    <TextBlock Height="25" Width="50" Margin="5,0">别名:</TextBlock>
+                    <TextBox Text="{Binding Name}" Width="130" Height="25"></TextBox>
                     <ComboBox x:Name="typelist" Grid.Column="1" VerticalAlignment="Center" 
                           Margin="0,0,5,0" IsTabStop="False" Focusable="False" Width="100"
                           HorizontalAlignment="Right" Height="25" SelectedIndex="{Binding Index,Converter={StaticResource ResourceKey=radioconverter}}">
@@ -82,56 +92,85 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="105"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
-        </Grid.RowDefinitions>
-        <GroupBox Header="背景图编辑">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock>上(1366*126)</TextBlock>
-                <Label Grid.Column="1" Content="上传" Tag="top" MouseUp="Label_MouseUp"></Label>
-                <TextBlock Grid.Column="2">下(1366*80)</TextBlock>
-                <Label Grid.Column="3" Content="上传" Tag="bottom" MouseUp="Label_MouseUp"></Label>
-                <TextBlock Grid.Column="4">左(306*562)</TextBlock>
-                <Label Grid.Column="5" Content="上传" Tag="left" MouseUp="Label_MouseUp"></Label>
-                <TextBlock Grid.Column="6">右(31*562)</TextBlock>
-                <Label Grid.Column="7" Content="上传" Tag="right" MouseUp="Label_MouseUp"></Label>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="内容编辑" Grid.Row="1">
-            <ListBox ItemContainerStyle="{StaticResource ResourceKey=itemtemplate}"
-                     ItemTemplate="{StaticResource ResourceKey=menuitemtemplate}"
-                     ItemsSource="{Binding Source={x:Static mod:ConfigManager.Instance},Path=Items}"></ListBox>
-        </GroupBox>
-        <GroupBox Header="其他内容" Grid.Row="2">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="10,3">
-                    <Label x:Name="fileupload" Height="30" Width="150" HorizontalAlignment="Left" Content="文字滚动文件上传" MouseUp="fileupload_MouseUp"></Label>
-                    <TextBlock Margin="10,0,0,0" Foreground="Red" FontSize="16">提示：每条信息之间请用回车换行分割，字幕最多支持10条信息</TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="10,3">
-                    <Label x:Name="videoupload" Height="30" Width="150" HorizontalAlignment="Left" Content="待机视频上传" MouseUp="videoupload_MouseUp"></Label>
-                    <Label x:Name="backupload" Margin="10,0" Height="30" Width="150" HorizontalAlignment="Left" Content="待机背景图上传" MouseUp="backupload_MouseUp"></Label>
-                    <RadioButton x:Name="rdback" VerticalContentAlignment="Center" FontSize="16" IsChecked="True">显示背景图</RadioButton>
-                    <RadioButton x:Name="rdvideo" VerticalContentAlignment="Center" FontSize="16">显示视频</RadioButton>
-                </StackPanel>
-            </StackPanel> 
-        </GroupBox>
-        <DockPanel Grid.Row="3">
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" Content="保存" x:Name="Save" Click="OnSave"></Button>
         </DockPanel>
-    </Grid>
+        <TabControl>
+            <TabItem Header="背景编辑">
+                <DockPanel LastChildFill="True">
+                    <Grid Height="60" DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock>上(1366*126)</TextBlock>
+                        <Label Grid.Column="1" Content="上传" Height="28" Tag="top" MouseUp="Label_MouseUp"></Label>
+                        <TextBlock Grid.Column="2">下(1366*80)</TextBlock>
+                        <Label Grid.Column="3" Content="上传" Height="28" Tag="bottom" MouseUp="Label_MouseUp"></Label>
+                        <TextBlock Grid.Column="4">左(306*562)</TextBlock>
+                        <Label Grid.Column="5" Content="上传" Height="28" Tag="left" MouseUp="Label_MouseUp"></Label>
+                        <TextBlock Grid.Column="6">右(31*562)</TextBlock>
+                        <Label Grid.Column="7" Content="上传" Height="28" Tag="right" MouseUp="Label_MouseUp"></Label>
+                    </Grid>
+                    <StackPanel>
+                        <TextBlock>按钮图标上传(201*49)</TextBlock>
+                        <ListBox ItemContainerStyle="{StaticResource ResourceKey=itemtemplate}"
+                                 ItemTemplate="{StaticResource ResourceKey=buttonitemtemplate}"
+                                 ItemsSource="{Binding Source={x:Static mod:ConfigManager.Instance},Path=Items}"></ListBox>
+                    </StackPanel>
+                    <!--<Grid Margin="30">                        
+                        <StackPanel>
+                            <Image x:Name="top"></Image>
+                            <DockPanel HorizontalAlignment="Stretch" Height="350" LastChildFill="True">
+                                <Image x:Name="left" DockPanel.Dock="Left"></Image>
+                                <Image x:Name="right" DockPanel.Dock="Right"></Image>
+                                <Grid></Grid>
+                            </DockPanel>
+                            <Image x:Name="bottom"></Image>
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20">预览图</TextBlock>
+                    </Grid>-->
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="内容编辑">
+                <ListBox ItemContainerStyle="{StaticResource ResourceKey=itemtemplate}"
+                     ItemTemplate="{StaticResource ResourceKey=menuitemtemplate}"
+                     ItemsSource="{Binding Source={x:Static mod:ConfigManager.Instance},Path=Items}"></ListBox>
+            </TabItem>
+            <TabItem Header="其他内容">
+                <StackPanel>
+                    <StackPanel Margin="10,3">
+                        <TextBox x:Name="rsssource" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
+                                 HorizontalAlignment="Stretch" Height="320" Margin="10">
+
+                        </TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="rssupload" Height="30" Width="150" HorizontalAlignment="Left" Content="RSS源文件上传" MouseUp="rssupload_MouseUp"></Label>
+                            <Label x:Name="rssstart" Height="30" Width="150" HorizontalAlignment="Left" Content="启动RSS源文件抓取" MouseUp="rssstart_MouseUp"></Label>
+                        </StackPanel>                        
+                        <TextBlock Margin="10,0,0,0" Foreground="Red" FontSize="16">提示：每条源之间请用回车换行分割，RSS源最多支持10条</TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="10,3">
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="fileupload" Height="30" Width="150" HorizontalAlignment="Left" Content="通知文件上传" MouseUp="fileupload_MouseUp"></Label>
+                        </StackPanel>
+                        <TextBlock Margin="10,0,0,0" Foreground="Red" FontSize="16">提示：每条信息之间请用回车换行分割，通知最多支持10条信息</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10,3">
+                        <Label x:Name="videoupload" Height="30" Width="150" HorizontalAlignment="Left" Content="待机视频上传" MouseUp="videoupload_MouseUp"></Label>
+                        <Label x:Name="backupload" Margin="10,0" Height="30" Width="150" HorizontalAlignment="Left" Content="待机背景图上传" MouseUp="backupload_MouseUp"></Label>
+                        <RadioButton x:Name="rdback" VerticalContentAlignment="Center" FontSize="16" IsChecked="True">显示背景图</RadioButton>
+                        <RadioButton x:Name="rdvideo" VerticalContentAlignment="Center" FontSize="16">显示视频</RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

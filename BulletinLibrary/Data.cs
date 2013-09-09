@@ -13,7 +13,14 @@ using System.Text.RegularExpressions;
 
 
 namespace BulletinLibrary {
+	public class RSS {
+		public string Source { get; set; }
+	}
+
 	public class ItemBase : IDataErrorInfo {
+        public string ShowName { get; set; }
+        public string Button { get; set; }
+        public string ButtonBack { get; set; }
 		public string Name { get; set; }
 		public int Index { get; set; }
 		public string Url { get; set; }
@@ -23,6 +30,7 @@ namespace BulletinLibrary {
 		public string PlayPath { get; set; }
 		public string IsBack { get; set; }
 		public string Marquee { get; set; }
+		public string RSS { get; set; }
 
 		public string Error {
 			get { throw new NotImplementedException(); }

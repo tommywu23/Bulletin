@@ -11,7 +11,7 @@ namespace Config
 		public static bool Do(){
 			bool result = true;
 			DateTime dat1 = DateTime.Now.Date;
-			DateTime dat2 = DateTime.Parse("2013-5-8");
+			DateTime dat2 = DateTime.Parse("2013-11-1");
 			if (dat1.CompareTo(dat2) > 0) {
 				result = false;
 			}

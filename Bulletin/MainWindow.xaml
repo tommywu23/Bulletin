@@ -39,9 +39,6 @@
     </Window.Resources>
     <Canvas>
         <Grid x:Name="TopBack" Width="1366" Height="126" Canvas.Left="0" Canvas.Top="0">
-            <Grid.Background>
-                <ImageBrush ImageSource="Resource/Images/top.png"></ImageBrush>
-            </Grid.Background>
             <view:WeatherView HorizontalAlignment="Right" 
                               Margin="3,3,30,50"
                               DataContext="{Binding Source={x:Static mod:BroadManager.Instance},Path=CurrentWeather}"></view:WeatherView>
@@ -51,14 +48,8 @@
             <MediaElement x:Name="standby" MediaEnded="media_MediaEnded" Visibility="Hidden"></MediaElement>
         </Grid>
         <Grid x:Name="RightBack" Width="31" Canvas.Right="0" Canvas.Top="126" Height="562">
-            <Grid.Background>
-                <ImageBrush ImageSource="Resource/Images/right.png"></ImageBrush>
-            </Grid.Background>
         </Grid>
         <Grid x:Name="BottomBack" Width="1366" Canvas.Bottom="0" Height="80">
-            <Grid.Background>
-                <ImageBrush ImageSource="Resource/Images/bottom.png"></ImageBrush>
-            </Grid.Background>
             <Label x:Name="lblDate" HorizontalAlignment="Left" 
                          VerticalAlignment="Center" Margin="35,10,0,0"
                          Focusable="False" Background="Transparent" 
@@ -66,13 +57,10 @@
                          Content="{Binding Path=SysDateTime,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:MainWindow}},Converter={StaticResource MwSysDateTimeConverter}}">
             </Label>
             <view:Marquee Background="Transparent" HorizontalAlignment="Right"
-                          FontSize="22" MarqueeTimeInSeconds="160" Height="35" Width="1150" x:Name="marqueecontrol"
+                          FontSize="22" Height="35" Width="1150" x:Name="marqueecontrol"
                           Foreground="White" Margin="50,18,50,0" MarqueeContent="{Binding Source={x:Static mod:BroadManager.Instance},Path=Lamp}"></view:Marquee>
         </Grid>
         <Grid x:Name="LeftBack" Canvas.Left="0" Canvas.Top="126" Height="562" Width="306">
-            <Grid.Background>
-                <ImageBrush ImageSource="Resource/Images/left.png"></ImageBrush>
-            </Grid.Background>
             <Viewbox Margin="-55,25,0,0">
                 <ListBox Height="562" Width="220"  x:Name="buttons"  Background="Transparent"           
                          ItemContainerStyle="{StaticResource ResourceKey=itemtemplate}"

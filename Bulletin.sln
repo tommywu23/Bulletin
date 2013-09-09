@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulletinStart", "BulletinSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{C1D88D15-9C44-43A3-A3DF-C4A9208862BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSSService", "RSSService\RSSService.csproj", "{6E682616-0D3F-4316-87FD-6610C17BEC63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientContract", "GBTouchClientContract\ClientContract.csproj", "{8AEBE8A8-20FD-4EC9-BABD-350E0D95AE38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{C1D88D15-9C44-43A3-A3DF-C4A9208862BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1D88D15-9C44-43A3-A3DF-C4A9208862BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1D88D15-9C44-43A3-A3DF-C4A9208862BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E682616-0D3F-4316-87FD-6610C17BEC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E682616-0D3F-4316-87FD-6610C17BEC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E682616-0D3F-4316-87FD-6610C17BEC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E682616-0D3F-4316-87FD-6610C17BEC63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AEBE8A8-20FD-4EC9-BABD-350E0D95AE38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEBE8A8-20FD-4EC9-BABD-350E0D95AE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEBE8A8-20FD-4EC9-BABD-350E0D95AE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEBE8A8-20FD-4EC9-BABD-350E0D95AE38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
